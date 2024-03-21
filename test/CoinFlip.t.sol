@@ -28,7 +28,7 @@ contract CoinFlipTest is Test {
     CoinFlip public cf;
     CoinFlipAttack public cfAttack;
 
-    address payable alice = payable(address(0x220866B1A2219f40e72f5c628B65D54268cA3A9D));
+    address alice = address(1);
 
     function setUp() public {
         cf = new CoinFlip();
