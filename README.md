@@ -4,7 +4,7 @@ forge test --match-path ./test/Fallout.t.sol
 forge test --match-path ./test/CoinFlip.t.sol
 forge test --match-path ./test/Telephone.t.sol
 forge test --match-path ./test/Token.t.sol
-
+forge test --match-path ./test/Delegation.t.sol
 
 ```
 
