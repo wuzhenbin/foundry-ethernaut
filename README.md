@@ -1,5 +1,8 @@
 ```shell
 forge test --match-path ./test/Fallback.t.sol
+forge test --match-path ./test/Fallout.t.sol
+forge test --match-path ./test/CoinFlip.t.sol
+
 ```
 
 ## Foundry
