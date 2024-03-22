@@ -7,7 +7,7 @@ import {Fallback} from "../src/Fallback.sol";
 contract FallbackTest is Test {
     Fallback public fab;
 
-    address payable alice = payable(address(0x220866B1A2219f40e72f5c628B65D54268cA3A9D));
+    address alice = makeAddr("alice");
 
     function setUp() public {
         fab = new Fallback();
