@@ -8,6 +8,10 @@ forge test --match-path ./test/Delegation.t.sol
 forge test --match-path ./test/Force.t.sol
 forge test --match-path ./test/Vault.t.sol
 forge test --match-path ./test/King.t.sol
+forge test --match-path ./test/Reentrancy.t.sol
+forge test --match-path ./test/Elevator.t.sol
+forge test --match-path ./test/Privacy.t.sol
+forge test --match-path ./test/GatekeeperOne.t.sol
 ```
 
 ## Foundry

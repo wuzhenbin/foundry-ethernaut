@@ -4,10 +4,6 @@ pragma solidity ^0.8.17;
 import {Test, console} from "forge-std/Test.sol";
 import {CoinFlip} from "../src/CoinFlip.sol";
 
-/* 
-获得以下合约的所有权来完成这一关
-*/
-
 contract CoinFlipAttack {
     CoinFlip cf;
     uint256 constant FACTOR = 57896044618658097711785492504343953926634992332820282019728792003956564819968;
