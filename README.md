@@ -12,6 +12,14 @@ forge test --match-path ./test/Reentrancy.t.sol
 forge test --match-path ./test/Elevator.t.sol
 forge test --match-path ./test/Privacy.t.sol
 forge test --match-path ./test/GatekeeperOne.t.sol
+forge test --match-path ./test/GatekeeperTwo.t.sol
+forge test --match-path ./test/NaughtCoin.t.sol
+forge test --match-path ./test/Preservation.t.sol
+forge test --match-path ./test/Recovery.t.sol
+
+
+forge install OpenZeppelin/openzeppelin-contracts@v3.4.2 --no-commit (solidity 0.6)
+forge install OpenZeppelin/openzeppelin-contracts@v4.8.2 --no-commit (solidity 0.6)
 ```
 
 ## Foundry
