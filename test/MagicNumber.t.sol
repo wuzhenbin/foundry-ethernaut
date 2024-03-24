@@ -2,7 +2,7 @@
 pragma solidity ^0.8.17;
 
 import {Test, console} from "forge-std/Test.sol";
-import {MagicNum} from "../src/MagicNumber.sol";
+// import {MagicNum} from "../src/MagicNumber.sol";
 
 /* 
 Run time code - return 42
@@ -53,7 +53,7 @@ contract MagicNumberFactory {
 }
 
 contract MagicNumberTest is Test {
-    MagicNum public magicNum;
+    // MagicNum public magicNum;
     MagicNumberFactory magicFactory;
 
     address alice = address(1);
