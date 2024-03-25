@@ -18,6 +18,9 @@ forge test --match-path ./test/Preservation.t.sol
 forge test --match-path ./test/Recovery.t.sol
 forge test --match-path ./test/MagicNumber.t.sol
 forge test --match-path ./test/AlienCodex.t.sol
+forge test --match-path ./test/Denial.t.sol
+forge test --match-path ./test/Shop.t.sol
+forge test --match-path ./test/Dex.t.sol
 
 
 forge install OpenZeppelin/openzeppelin-contracts@v3.4.2 --no-commit (solidity 0.6)
