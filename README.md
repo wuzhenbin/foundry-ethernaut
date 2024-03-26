@@ -21,7 +21,8 @@ forge test --match-path ./test/AlienCodex.t.sol
 forge test --match-path ./test/Denial.t.sol
 forge test --match-path ./test/Shop.t.sol
 forge test --match-path ./test/Dex.t.sol
-
+forge test --match-path ./test/DexTwo.t.sol
+forge test --match-path ./test/PuzzleWallet.t.sol
 
 forge install OpenZeppelin/openzeppelin-contracts@v3.4.2 --no-commit (solidity 0.6)
 forge install OpenZeppelin/openzeppelin-contracts@v4.8.2 --no-commit (solidity 0.6)
