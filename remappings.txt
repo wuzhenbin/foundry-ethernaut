@@ -2,3 +2,4 @@ ds-test/=lib/forge-std/lib/ds-test/src/
 forge-std/=lib/forge-std/src/
 @openzeppelin6/=lib/openzeppelin-contracts@6/
 @openzeppelin8/=lib/openzeppelin-contracts@8/
+foundry-devops/=lib/foundry-devops/src/

