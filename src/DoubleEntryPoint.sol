@@ -26,7 +26,11 @@ Forta 是一个去中心化的、基于社区的监控网络，
 */
 
 interface DelegateERC20 {
-    function delegateTransfer(address to, uint256 value, address origSender) external returns (bool);
+    function delegateTransfer(
+        address to,
+        uint256 value,
+        address origSender
+    ) external returns (bool);
 }
 
 interface IDetectionBot {
@@ -35,7 +39,9 @@ interface IDetectionBot {
 
 interface IForta {
     function setDetectionBot(address detectionBotAddress) external;
+
     function notify(address user, bytes calldata msgData) external;
+
     function raiseAlert(address user) external;
 }
 
@@ -44,6 +50,7 @@ contract Forta is IForta {
     mapping(address => IDetectionBot) public usersDetectionBots;
     // bot alert times
     mapping(address => uint256) public botRaisedAlerts;
+
     // set somebody's bot
 
     function setDetectionBot(address detectionBotAddress) external override {
@@ -100,7 +107,10 @@ contract LegacyToken is ERC20("LegacyToken", "LGT"), Ownable {
         delegate = newContract;
     }
 
-    function transfer(address to, uint256 value) public override returns (bool) {
+    function transfer(
+        address to,
+        uint256 value
+    ) public override returns (bool) {
         if (address(delegate) == address(0)) {
             return super.transfer(to, value);
         } else {
@@ -109,13 +119,22 @@ contract LegacyToken is ERC20("LegacyToken", "LGT"), Ownable {
     }
 }
 
-contract DoubleEntryPoint is ERC20("DoubleEntryPointToken", "DET"), DelegateERC20, Ownable {
+contract DoubleEntryPoint is
+    ERC20("DoubleEntryPointToken", "DET"),
+    DelegateERC20,
+    Ownable
+{
     address public cryptoVault;
     address public player;
     address public delegatedFrom;
     Forta public forta;
 
-    constructor(address legacyToken, address vaultAddress, address fortaAddress, address playerAddress) {
+    constructor(
+        address legacyToken,
+        address vaultAddress,
+        address fortaAddress,
+        address playerAddress
+    ) {
         delegatedFrom = legacyToken;
         forta = Forta(fortaAddress);
         player = playerAddress;
@@ -141,17 +160,16 @@ contract DoubleEntryPoint is ERC20("DoubleEntryPointToken", "DET"), DelegateERC2
         _;
 
         // Check if alarms have been raised
-        if (forta.botRaisedAlerts(detectionBot) > previousValue) revert("Alert has been triggered, reverting");
+        if (forta.botRaisedAlerts(detectionBot) > previousValue)
+            revert("Alert has been triggered, reverting");
     }
 
     // sweptTokensRecipient, CryptoVault's Total Balance, CryptoVault's Address
-    function delegateTransfer(address to, uint256 value, address origSender)
-        public
-        override
-        onlyDelegateFrom
-        fortaNotify
-        returns (bool)
-    {
+    function delegateTransfer(
+        address to,
+        uint256 value,
+        address origSender
+    ) public override onlyDelegateFrom fortaNotify returns (bool) {
         _transfer(origSender, to, value);
         return true;
     }

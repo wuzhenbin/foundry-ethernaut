@@ -24,6 +24,9 @@ forge test --match-path ./test/Dex.t.sol
 forge test --match-path ./test/DexTwo.t.sol
 forge test --match-path ./test/PuzzleWallet.t.sol
 forge test --match-path ./test/Motorbike.t.sol
+forge test --match-path ./test/DoubleEntryPoint.t.sol
+
+
 
 forge script script/MotorbikeDeploy.s.sol --rpc-url $RPC_URL_LOCAL --broadcast
 forge script script/MotorbikeInteract.s.sol --rpc-url $RPC_URL_LOCAL --broadcast
