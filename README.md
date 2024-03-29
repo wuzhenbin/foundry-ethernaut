@@ -25,6 +25,7 @@ forge test --match-path ./test/DexTwo.t.sol
 forge test --match-path ./test/PuzzleWallet.t.sol
 forge test --match-path ./test/Motorbike.t.sol
 forge test --match-path ./test/DoubleEntryPoint.t.sol
+forge test --match-path ./test/GoodSamaritan.t.sol
 
 
 
