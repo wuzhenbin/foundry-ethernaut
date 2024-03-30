@@ -27,7 +27,7 @@ forge test --match-path ./test/Motorbike.t.sol
 forge test --match-path ./test/DoubleEntryPoint.t.sol
 forge test --match-path ./test/GoodSamaritan.t.sol
 forge test --match-path ./test/GatekeeperThree.t.sol
-
+forge test --match-path ./test/Switch.t.sol
 
 forge script script/MotorbikeDeploy.s.sol --rpc-url $RPC_URL_LOCAL --broadcast
 forge script script/MotorbikeInteract.s.sol --rpc-url $RPC_URL_LOCAL --broadcast
